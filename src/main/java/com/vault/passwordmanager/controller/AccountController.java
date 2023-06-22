@@ -15,7 +15,11 @@ public class AccountController {
         return "Hello Java!";
     }
     @PostMapping("/add")
-    Account addAccount(@RequestBody Account account){
+    private Account addAccount(@RequestBody Account account){
         return accountService.addAccount(account);
+    }
+    @PutMapping("/update/{id}")
+    private Account updateAccount(@PathVariable int id, @RequestBody Account newAccount){
+        return accountService.updateAccount(id,newAccount);
     }
 }

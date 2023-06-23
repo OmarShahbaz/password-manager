@@ -16,20 +16,29 @@ public class AccountController {
     String display(){
         return "Hello Java!";
     }
+
     @PostMapping("/add")
     private Account addAccount(@RequestBody Account account){
         return accountService.addAccount(account);
     }
+
     @PutMapping("/update/{id}")
     private Account updateAccount(@PathVariable int id, @RequestBody Account newAccount){
         return accountService.updateAccount(id,newAccount);
     }
+
     @DeleteMapping("/delete/{id}")
     private void deleteAccount(@PathVariable int id){
         accountService.deleteAccount(id);
     }
+
     @GetMapping("/all")
     private List<Account> getAllAccounts(){
         return accountService.getAllAccounts();
+    }
+
+    @GetMapping("/id/{id}")
+    private Account retrieveAccount(@PathVariable int id){
+        return accountService.retrieveAccount(id);
     }
 }

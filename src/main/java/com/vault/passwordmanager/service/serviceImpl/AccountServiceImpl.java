@@ -39,4 +39,10 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> getAllAccounts() {
         return accountRepository.findAll();
     }
+
+    @Override
+    public Account retrieveAccount(int id) {
+        Account account = accountRepository.findById(id).get();
+        return account;
+    }
 }

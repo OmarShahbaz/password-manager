@@ -9,4 +9,5 @@ public interface AccountService {
     Account updateAccount(int id, Account account);
     void deleteAccount(int id);
     List<Account> getAllAccounts();
+    Account retrieveAccount(int id);
 }

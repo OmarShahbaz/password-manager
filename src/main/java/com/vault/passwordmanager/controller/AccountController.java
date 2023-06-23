@@ -5,6 +5,8 @@ import com.vault.passwordmanager.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/account")
 public class AccountController {
@@ -25,5 +27,9 @@ public class AccountController {
     @DeleteMapping("/delete/{id}")
     private void deleteAccount(@PathVariable int id){
         accountService.deleteAccount(id);
+    }
+    @GetMapping("/all")
+    private List<Account> getAllAccounts(){
+        return accountService.getAllAccounts();
     }
 }

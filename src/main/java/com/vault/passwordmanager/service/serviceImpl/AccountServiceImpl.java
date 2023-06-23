@@ -6,6 +6,7 @@ import com.vault.passwordmanager.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -16,6 +17,7 @@ public class AccountServiceImpl implements AccountService {
     public Account addAccount(Account account) {
         return accountRepository.save(account);
     }
+
     @Override
     public Account updateAccount(int id, Account newAccount) {
         Account account = accountRepository.findById(id).get();
@@ -31,5 +33,10 @@ public class AccountServiceImpl implements AccountService {
     public void deleteAccount(int id) {
         Account account = accountRepository.findById(id).get();
         accountRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Account> getAllAccounts() {
+        return accountRepository.findAll();
     }
 }

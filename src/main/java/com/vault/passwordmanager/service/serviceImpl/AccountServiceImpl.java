@@ -26,4 +26,10 @@ public class AccountServiceImpl implements AccountService {
          account.setPassword(newAccount.getPassword());
         return accountRepository.save(account);
     }
+
+    @Override
+    public void deleteAccount(int id) {
+        Account account = accountRepository.findById(id).get();
+        accountRepository.deleteById(id);
+    }
 }

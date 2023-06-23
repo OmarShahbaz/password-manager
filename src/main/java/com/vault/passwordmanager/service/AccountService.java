@@ -4,5 +4,6 @@ import com.vault.passwordmanager.model.Account;
 
 public interface AccountService {
     Account addAccount(Account account);
-    Account updateAccount(int id, Account newAccount);
+    Account updateAccount(int id, Account account);
+    void deleteAccount(int id);
 }

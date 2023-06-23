@@ -22,4 +22,8 @@ public class AccountController {
     private Account updateAccount(@PathVariable int id, @RequestBody Account newAccount){
         return accountService.updateAccount(id,newAccount);
     }
+    @DeleteMapping("/delete/{id}")
+    private void deleteAccount(@PathVariable int id){
+        accountService.deleteAccount(id);
+    }
 }
